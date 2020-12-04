@@ -1,0 +1,49 @@
+{
+  "name": "eng-social-pairs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "d3": "^5.16.0",
+    "react": "^17.0.1",
+    "react-d3-graph": "^2.5.0",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "preinstall": "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc",
+    "install": "NODE_ENV=development concurrently -n server,ui --c cyan,magenta \"npm install --prefix server\" \"npm install --prefix ui \"",
+    "build": "concurrently -n server,ui --c cyan,magenta \"npm run build --prefix server\" \"npm run build --prefix ui\"",
+    "watch": "npm run start --prefix server",
+    "test": "react-scripts test",
+    "serve": "npm run start:prod --prefix server",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/node": "^7.12.6",
+    "babel-plugin-styled-components": "^1.12.0",
+    "concurrently": "^5.2.0"
+  }
+}
