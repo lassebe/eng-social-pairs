@@ -9,7 +9,7 @@ import { CustomNode } from "./CustomNode";
 import { useInterval } from "./useInterval";
 
 const StyledWrapper = styled.div`
-  background-color: #fbfaf0;
+  background-color: #f9f6f1;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -20,18 +20,18 @@ const StyledWrapper = styled.div`
 const StyledPrimaryButton = styled(Button.Primary)`
   margin-bottom: 8px;
   font-size: ${FONT.SIZE.L};
-  font-weight: ${FONT.WEIGHT.BOLD};
+  border-radius: 15px;
 `;
 
 const StyledSecondaryButton = styled(Button.Secondary)`
   margin-bottom: 8px;
   font-size: ${FONT.SIZE.L};
-  font-weight: ${FONT.WEIGHT.BOLD};
+  border-radius: 15px;
 `;
 const StyledBorderedButton = styled(Button.Bordered)`
   margin-bottom: 8px;
   font-size: ${FONT.SIZE.L};
-  font-weight: ${FONT.WEIGHT.BOLD};
+  border-radius: 15px;
 `;
 
 const StyledGraph = styled(Graph)`
