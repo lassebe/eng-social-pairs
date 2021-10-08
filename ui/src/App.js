@@ -17,31 +17,33 @@ const StyledWrapper = styled.div`
 
 const StyledPrimaryButton = styled(Button.Primary)`
   margin-bottom: 8px;
-  font-size: ${FONT.SIZE.L};
+  font-size: ${FONT.SIZE.M};
+  background-color: #ffdf4e;
   border-radius: 15px;
 `;
-
-const StyledSecondaryButton = styled(Button.Secondary)`
+const StyledSecondaryButton = styled(Button)`
   margin-bottom: 8px;
-  font-size: ${FONT.SIZE.L};
+  font-size: ${FONT.SIZE.M};
+  text-decoration: underline;
   border-radius: 15px;
 `;
 const StyledBorderedButton = styled(Button.Bordered)`
   margin-bottom: 8px;
-  font-size: ${FONT.SIZE.L};
+  font-size: ${FONT.SIZE.M};
   border-radius: 15px;
 `;
 
-const StyledGraph = styled(Graph)`
-  flex: 1 0 auto;
-  margin-bottom: 8px;
-`;
 const StyledButtonGroup = styled.div`
-  margin 20px;
-  padding 0 16px 48px;
+  margin-bottom: 20px;
+  padding: 24px 48px 0;
   flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+`;
+
+const StyledGraphWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const objectsEqual = (o1, o2) =>
@@ -86,7 +88,7 @@ const App = () => {
   // that you want to override, otherwise default ones will be used
   const config = {
     width: 1400,
-    height: 900,
+    height: 800,
     nodeHighlightBehavior: true,
     linkHighlightBehavior: true,
     node: {
@@ -112,13 +114,6 @@ const App = () => {
 
   return (
     <StyledWrapper className="App-header">
-      {nodes.length > 0 && (
-        <StyledGraph
-          id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-          data={data}
-          config={config}
-        />
-      )}
       <StyledButtonGroup>
         <StyledPrimaryButton
           wide
@@ -146,6 +141,15 @@ const App = () => {
           {showRemaining ? `Show current pairs` : `Show possible pairs`}
         </StyledBorderedButton>
       </StyledButtonGroup>
+      <StyledGraphWrapper>
+        {nodes.length > 0 && (
+          <Graph
+            id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
+            data={data}
+            config={config}
+          />
+        )}
+      </StyledGraphWrapper>
     </StyledWrapper>
   );
 };
