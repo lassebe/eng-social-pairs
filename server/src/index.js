@@ -8,6 +8,7 @@ const port = process.env.PORT || 3001;
 const nodes = people.map((p) => {
   return {
     id: p.name,
+    image: p.image,
   };
 });
 

@@ -106,7 +106,7 @@ const App = () => {
       strokeWidth: 16,
     },
     d3: {
-      gravity: -4000,
+      gravity: -1000,
     },
   };
 

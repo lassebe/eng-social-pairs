@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { FONT } from "@farewill/ui/tokens";
-import { images } from "./images";
+import placeholder from "./placeholder.png";
+
 const Frame = styled.div`
   background-image: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(251, 230, 141, 0.6) 0%,
+    rgba(251, 230, 141, 90) 0%,
     rgba(255, 231, 232, 0) 100%
   );
   display: flex;
@@ -32,14 +33,10 @@ const NameTag = styled.div`
   padding-bottom: 8px;
 `;
 
-const image = (name) => (
-  <Image alt="icon" src={images[name] || images["placeholder"]} />
-);
-
 export const CustomNode = ({ person }) => {
   return (
     <Frame>
-      {image(String(person.id).toLowerCase())}
+      <Image alt="icon" src={person.image || placeholder} />
       <NameTag>{person.id}</NameTag>
     </Frame>
   );
