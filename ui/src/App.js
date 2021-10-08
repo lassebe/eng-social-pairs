@@ -12,8 +12,6 @@ const StyledWrapper = styled.div`
   background-color: #f9f6f1;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 `;
 
@@ -35,7 +33,15 @@ const StyledBorderedButton = styled(Button.Bordered)`
 `;
 
 const StyledGraph = styled(Graph)`
+  flex: 1 0 auto;
   margin-bottom: 8px;
+`;
+const StyledButtonGroup = styled.div`
+  margin 20px;
+  padding 0 16px 48px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const objectsEqual = (o1, o2) =>
@@ -113,31 +119,33 @@ const App = () => {
           config={config}
         />
       )}
-      <StyledPrimaryButton
-        wide
-        onClick={async () => {
-          await fetch(`/api/nextPairs`);
-        }}
-      >
-        Next pairs
-      </StyledPrimaryButton>
-      <StyledSecondaryButton
-        wide
-        onClick={async () => {
-          await fetch(`/api/reset`);
-        }}
-      >
-        Reset
-      </StyledSecondaryButton>
+      <StyledButtonGroup>
+        <StyledPrimaryButton
+          wide
+          onClick={async () => {
+            await fetch(`/api/nextPairs`);
+          }}
+        >
+          Next pairs
+        </StyledPrimaryButton>
+        <StyledSecondaryButton
+          wide
+          onClick={async () => {
+            await fetch(`/api/reset`);
+          }}
+        >
+          Reset
+        </StyledSecondaryButton>
 
-      <StyledBorderedButton
-        wide
-        onClick={async () => {
-          setShowRemaining(!showRemaining);
-        }}
-      >
-        {showRemaining ? `Show current pairs` : `Show possible pairs`}
-      </StyledBorderedButton>
+        <StyledBorderedButton
+          wide
+          onClick={async () => {
+            setShowRemaining(!showRemaining);
+          }}
+        >
+          {showRemaining ? `Show current pairs` : `Show possible pairs`}
+        </StyledBorderedButton>
+      </StyledButtonGroup>
     </StyledWrapper>
   );
 };
